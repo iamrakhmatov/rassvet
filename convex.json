@@ -1,0 +1,7 @@
+{
+  "project": "rassvet-backend",
+  "team": "iamrakhmatov",
+  "prodUrl": "https://uncommon-raven-994.convex.cloud",
+  "functions": "convex/",
+  "authInfo": []
+}
