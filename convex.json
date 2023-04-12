@@ -3,5 +3,10 @@
   "team": "iamrakhmatov",
   "prodUrl": "https://uncommon-raven-994.convex.cloud",
   "functions": "convex/",
-  "authInfo": []
+  "authInfo": [
+    {
+      "domain": "https://credible-hyena-21.clerk.accounts.dev/",
+      "applicationID": "convex"
+    }
+  ]
 }
