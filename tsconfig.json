@@ -16,6 +16,6 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": [".eslintrc.cjs", "src"],
+  "include": [".eslintrc.cjs", "tailwind.config.js", "src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

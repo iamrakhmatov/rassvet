@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@clerk/clerk-react': ^4.15.0
+  '@heroicons/react': ^2.0.17
   '@tanstack/react-router': 0.0.1-beta.74
   '@types/react': ^18.0.28
   '@types/react-dom': ^18.0.11
@@ -19,6 +20,7 @@ specifiers:
   eslint-plugin-prettier: ^4.2.1
   eslint-plugin-react: ^7.32.2
   eslint-plugin-react-hooks: ^4.6.0
+  eslint-plugin-tailwindcss: ^3.11.0
   postcss: ^8.4.21
   prettier: ^2.8.7
   react: ^18.2.0
@@ -29,6 +31,7 @@ specifiers:
 
 dependencies:
   '@clerk/clerk-react': 4.15.0_react@18.2.0
+  '@heroicons/react': 2.0.17_react@18.2.0
   '@tanstack/react-router': 0.0.1-beta.74_biqbaboplfbrettd7655fr4n2y
   convex: 0.12.2_6s7wpef74wohzvez3uce3huhe4
   react: 18.2.0
@@ -50,6 +53,7 @@ devDependencies:
   eslint-plugin-prettier: 4.2.1_mrzcadguhkbme6yx3ehduvsjxu
   eslint-plugin-react: 7.32.2_eslint@8.38.0
   eslint-plugin-react-hooks: 4.6.0_eslint@8.38.0
+  eslint-plugin-tailwindcss: 3.11.0_tailwindcss@3.3.1
   postcss: 8.4.21
   prettier: 2.8.7
   tailwindcss: 3.3.1_postcss@8.4.21
@@ -572,6 +576,14 @@ packages:
     resolution: {integrity: sha512-IoD2MfUnOV58ghIHCiil01PcohxjbYR/qCxsoC+xNgUwh1EY8jOOrYmu3d3a71+tJJ23uscEV4X2HJWMsPJu4g==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
+
+  /@heroicons/react/2.0.17_react@18.2.0:
+    resolution: {integrity: sha512-90GMZktkA53YbNzHp6asVEDevUQCMtxWH+2UK2S8OpnLEu7qckTJPhNxNQG52xIR1WFTwFqtH6bt7a60ZNcLLA==}
+    peerDependencies:
+      react: '>= 16'
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /@humanwhocodes/config-array/0.11.8:
     resolution: {integrity: sha512-UybHIJzJnR5Qc/MsD9Kr+RpO2h+/P1GhOwdiLPXK5TWk5sgTdu88bTD9UP+CKbPPh5Rni1u0GjAdYQLemG8g+g==}
@@ -1848,6 +1860,17 @@ packages:
       resolve: 2.0.0-next.4
       semver: 6.3.0
       string.prototype.matchall: 4.0.8
+    dev: true
+
+  /eslint-plugin-tailwindcss/3.11.0_tailwindcss@3.3.1:
+    resolution: {integrity: sha512-RaraOG4D6VXutKnoNvFQ4+frTWGJDKtezy1yCrGFS7Um1to/npDNdh2GL19IRoGB/eanbtwhxFXy+xyEw0grAg==}
+    engines: {node: '>=12.13.0'}
+    peerDependencies:
+      tailwindcss: ^3.2.2
+    dependencies:
+      fast-glob: 3.2.12
+      postcss: 8.4.21
+      tailwindcss: 3.3.1_postcss@8.4.21
     dev: true
 
   /eslint-scope/5.1.1:

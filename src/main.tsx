@@ -5,6 +5,7 @@ import { ConvexReactClient } from 'convex/react';
 import { ConvexProviderWithClerk } from 'convex/react-clerk';
 import { ClerkProvider } from '@clerk/clerk-react';
 import { router } from './router';
+import './index.css';
 
 const convex = new ConvexReactClient(import.meta.env.VITE_CONVEX_URL);
 
