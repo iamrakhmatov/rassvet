@@ -1,15 +1,10 @@
-import { Link, RootRoute, Outlet } from '@tanstack/react-router';
+import { RootRoute, Outlet } from '@tanstack/react-router';
+import LandingPage from '../pages/landing-page';
 
 export const rootRoute = new RootRoute({
   component: () => (
     <>
-      <div>
-        <Link to="/">Home</Link>
-
-        <Link to="/about">About</Link>
-        <Link to="/authenticated">Authenticated</Link>
-      </div>
-      <hr />
+      <LandingPage />
       <Outlet />
     </>
   ),

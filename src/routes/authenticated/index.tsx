@@ -1,6 +1,6 @@
 import { Outlet, Route } from '@tanstack/react-router';
 import { useConvexAuth } from 'convex/react';
-import { useAuth0 } from '@auth0/auth0-react';
+import { useUser } from '@clerk/clerk-react';
 import { rootRoute } from '../root';
 import LoginButton from '../../components/login';
 import LogoutButton from '../../components/logout';
@@ -28,12 +28,12 @@ export const authenticatedIndexRoute = new Route({
   getParentRoute: () => authenticatedRoute,
   path: '/',
   component: function Authenticated() {
-    const { user } = useAuth0();
+    const { user } = useUser();
 
     return (
       <div className="p-2">
         You&apos;re authenticated! Your username is{' '}
-        <strong>{user?.name}</strong>
+        <strong>{user?.fullName}</strong>
         <div className="h-2" />
         <LogoutButton />
         <div className="h-2" />
