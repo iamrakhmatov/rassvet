@@ -2,7 +2,6 @@ import { Outlet, Route } from '@tanstack/react-router';
 import { useConvexAuth } from 'convex/react';
 import { useUser } from '@clerk/clerk-react';
 import { rootRoute } from '../root';
-import LoginButton from '../../components/login';
 import LogoutButton from '../../components/logout';
 
 export const authenticatedRoute = new Route({
@@ -17,8 +16,6 @@ export const authenticatedRoute = new Route({
       <div className="p-2">
         <div>You must log in!</div>
         <div className="h-2" />
-        <LoginButton />
-        <LogoutButton />
       </div>
     );
   },

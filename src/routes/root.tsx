@@ -1,11 +1,8 @@
-import { RootRoute, Outlet } from '@tanstack/react-router';
-import { useConvexAuth } from 'convex/react';
-import LandingPage from '../pages/landing-page';
+import { Outlet, RootRoute } from '@tanstack/react-router';
 
-const RootPage = () => {
-  const { isAuthenticated } = useConvexAuth();
-  return isAuthenticated ? <Outlet /> : <LandingPage />;
-};
+function RootPage() {
+  return <Outlet />;
+}
 
 export const rootRoute = new RootRoute({
   component: RootPage,

@@ -1,16 +1,17 @@
 import { Router } from '@tanstack/react-router';
-import { indexRoute } from './routes';
-import { aboutRoute } from './routes/about';
+import { salesmanLayout } from './routes/salesman/layout';
+import { salesmanIndexRoute } from './routes/salesman';
+import { cashierIndexRoute } from './routes/cashier';
 import { rootRoute } from './routes/root';
-import {
-  authenticatedIndexRoute,
-  authenticatedRoute,
-} from './routes/authenticated';
+import { cashierLayout } from './routes/cashier/layout';
+
+import { authenticatedRoute } from './routes';
 
 const routeTree = rootRoute.addChildren([
-  indexRoute,
-  aboutRoute,
-  authenticatedRoute.addChildren([authenticatedIndexRoute]),
+  authenticatedRoute.addChildren([
+    salesmanLayout.addChildren([salesmanIndexRoute]),
+    cashierLayout.addChildren([cashierIndexRoute]),
+  ]),
 ]);
 
 export const router = new Router({ routeTree });
