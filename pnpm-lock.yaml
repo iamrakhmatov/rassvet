@@ -28,6 +28,7 @@ specifiers:
   tailwindcss: ^3.3.1
   typescript: ^4.9.3
   vite: ^4.2.0
+  zustand: ^4.3.7
 
 dependencies:
   '@clerk/clerk-react': 4.15.0_react@18.2.0
@@ -36,6 +37,7 @@ dependencies:
   convex: 0.12.2_6s7wpef74wohzvez3uce3huhe4
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  zustand: 4.3.7_react@18.2.0
 
 devDependencies:
   '@types/react': 18.0.34
@@ -3437,3 +3439,19 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
     dev: true
+
+  /zustand/4.3.7_react@18.2.0:
+    resolution: {integrity: sha512-dY8ERwB9Nd21ellgkBZFhudER8KVlelZm8388B5nDAXhO/+FZDhYMuRnqDgu5SYyRgz/iaf8RKnbUs/cHfOGlQ==}
+    engines: {node: '>=12.7.0'}
+    peerDependencies:
+      immer: '>=9.0'
+      react: '>=16.8'
+    peerDependenciesMeta:
+      immer:
+        optional: true
+      react:
+        optional: true
+    dependencies:
+      react: 18.2.0
+      use-sync-external-store: 1.2.0_react@18.2.0
+    dev: false
