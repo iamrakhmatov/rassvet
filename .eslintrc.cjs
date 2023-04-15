@@ -17,14 +17,16 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
-    project: './tsconfig.json',
+    project: ['./tsconfig.json', 'convex/tsconfig.json'],
   },
   plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
     'react/react-in-jsx-scope': 0,
-    '@typescript-eslint/no-non-null-assertion': 'off',
+    '@typescript-eslint/no-non-null-assertion': 0,
     'import/prefer-default-export': 0,
     'react/function-component-definition': 0,
     'import/no-cycle': 0,
+    'no-underscore-dangle': 0,
+    '@typescript-eslint/no-use-before-define': 0,
   },
 };
