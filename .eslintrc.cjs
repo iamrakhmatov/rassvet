@@ -17,9 +17,9 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
-    project: ['./tsconfig.json', 'convex/tsconfig.json'],
+    project: ['./tsconfig.json', 'convex/tsconfig.json', 'vite.config.ts'],
   },
-  plugins: ['react', '@typescript-eslint', 'prettier'],
+  plugins: ['react', '@typescript-eslint', 'prettier', 'react-refresh'],
   rules: {
     'react/react-in-jsx-scope': 0,
     '@typescript-eslint/no-non-null-assertion': 0,
@@ -28,5 +28,7 @@ module.exports = {
     'import/no-cycle': 0,
     'no-underscore-dangle': 0,
     '@typescript-eslint/no-use-before-define': 0,
+    'consistent-return': 0,
+    'react-refresh/only-export-components': 'warn',
   },
 };
