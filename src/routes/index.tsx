@@ -1,33 +1,21 @@
-import { Outlet, Route, useNavigate } from '@tanstack/react-router';
-import { useConvexAuth } from 'convex/react';
-import { useUser } from '@clerk/clerk-react';
+import { Outlet, useNavigate } from '@tanstack/react-router';
 import { useEffect } from 'react';
-import { rootRoute } from './root';
-import { LandingPage } from '../pages/landing-page';
+import { useQuery } from '@convex/_generated/react';
+import { authenticatedRoute } from '../router';
 
-function Auth() {
-  const { isAuthenticated, isLoading } = useConvexAuth();
-  const { user } = useUser();
-
+export function AuthenticatedWrapper() {
+  const status = useQuery('getUserStatus');
   const navigate = useNavigate({
     from: authenticatedRoute.id,
   });
 
   useEffect(() => {
-    if (user) {
-      navigate({ to: '/salesman' });
+    if (status) {
+      navigate({ to: `/${status}` });
     }
-  }, [user, navigate]);
+  }, [status, navigate]);
 
-  if (isLoading) return <>Loading...</>;
-
-  if (!isAuthenticated) return <LandingPage />;
+  if (!status) return <>Loading user status...</>;
 
   return <Outlet />;
 }
-
-export const authenticatedRoute = new Route({
-  getParentRoute: () => rootRoute,
-  path: '/',
-  component: Auth,
-});

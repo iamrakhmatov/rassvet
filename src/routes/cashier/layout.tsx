@@ -1,9 +1,11 @@
-import { Outlet, Route } from '@tanstack/react-router';
-import { authenticatedRoute } from '..';
+import { Outlet } from '@tanstack/react-router';
 
-const CashierLayoutWrapper = () => {
-  console.log('Cashier Layout Wrapper');
+import { useQuery } from '../../../convex/_generated/react';
 
+export const CashierLayout = () => {
+  const status = useQuery('getUserStatus');
+
+  if (status !== 'cashier') return null;
   return (
     <div>
       <div>Cashier Layout Route</div>
@@ -12,9 +14,3 @@ const CashierLayoutWrapper = () => {
     </div>
   );
 };
-
-export const cashierLayout = new Route({
-  getParentRoute: () => authenticatedRoute,
-  id: 'cashier',
-  component: CashierLayoutWrapper,
-});

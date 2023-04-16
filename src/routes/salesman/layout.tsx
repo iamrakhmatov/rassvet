@@ -1,20 +1,15 @@
-import { Outlet, Route } from '@tanstack/react-router';
-import { authenticatedRoute } from '..';
+import { Outlet } from '@tanstack/react-router';
+import { useQuery } from '@convex/_generated/react';
 
-const SalesmanLayoutWrapper = () => {
-  console.log('Salesman Layout Wrapper');
+export const SalesmanLayout = () => {
+  const status = useQuery('getUserStatus');
+
+  if (status !== 'salesman') return null;
 
   return (
     <div>
       <div>Salesman Layout Route</div>
-      <hr />
-      <Outlet />
+      <hr /> <Outlet />
     </div>
   );
 };
-
-export const salesmanLayout = new Route({
-  getParentRoute: () => authenticatedRoute,
-  id: 'salesman',
-  component: SalesmanLayoutWrapper,
-});

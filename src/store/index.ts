@@ -1,11 +1,12 @@
 import { create } from 'zustand';
+import { UserStatus } from '../../convex/schema';
 
 interface AppState {
-  isLoggedIn: boolean;
-  setLoginStatus: (status: boolean) => void;
+  userStatus: UserStatus | undefined;
+  setUserStatus: (status: UserStatus) => void;
 }
 
 export const useAppStore = create<AppState>((set) => ({
-  isLoggedIn: false,
-  setLoginStatus: (status) => set(() => ({ isLoggedIn: status })),
+  userStatus: undefined,
+  setUserStatus: (status) => set(() => ({ userStatus: status })),
 }));
