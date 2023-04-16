@@ -18,9 +18,12 @@
     "baseUrl": "./src",
     "paths": {
       "@/*": ["./*", "./dist/*", ""],
+      "@lib/*": ["./lib/*"],
+      "@hooks/*": ["./hooks/*"],
+      "@pages/*": ["./pages/*"],
       "@routes/*": ["./routes/*"],
-      "@services/*": ["./services/*"],
-      "@convex/*": ["../convex/*"]
+      "@convex/*": ["../convex/_generated/*"],
+      "@components/*": ["./components/*"],
     },
   },
   "include": [".eslintrc.cjs", "tailwind.config.js", "src", "vite.config.ts"],

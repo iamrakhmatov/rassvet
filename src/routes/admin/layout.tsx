@@ -1,5 +1,5 @@
 import { Outlet } from '@tanstack/react-router';
-import { useQuery } from '../../../convex/_generated/react';
+import { useQuery } from '@convex/react';
 
 export const AdminLayout = () => {
   const status = useQuery('getUserStatus');

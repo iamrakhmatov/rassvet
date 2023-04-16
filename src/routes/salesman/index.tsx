@@ -1,4 +1,4 @@
-import LogoutButton from '../../components/logout';
+import LogoutButton from '@components/logout';
 
 export function SalesmanIndex() {
   return (

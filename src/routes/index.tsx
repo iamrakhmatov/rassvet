@@ -1,6 +1,6 @@
 import { Outlet, useNavigate } from '@tanstack/react-router';
 import { useEffect } from 'react';
-import { useQuery } from '@convex/_generated/react';
+import { useQuery } from '@convex/react';
 import { authenticatedRoute } from '../router';
 
 export function AuthenticatedWrapper() {
