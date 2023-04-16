@@ -12,7 +12,7 @@
 import type { ApiFromModules } from "convex/api";
 import type * as getProducts from "../getProducts";
 import type * as getUser from "../getUser";
-import type * as getUserRole from "../getUserRole";
+import type * as getUserStatus from "../getUserStatus";
 
 /**
  * A type describing your app's public Convex API.
@@ -26,5 +26,5 @@ import type * as getUserRole from "../getUserRole";
 export type API = ApiFromModules<{
   getProducts: typeof getProducts;
   getUser: typeof getUser;
-  getUserRole: typeof getUserRole;
+  getUserStatus: typeof getUserStatus;
 }>;
