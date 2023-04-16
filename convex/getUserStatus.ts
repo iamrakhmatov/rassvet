@@ -1,9 +1,10 @@
-import { mutation } from './_generated/server';
+import { query } from './_generated/server';
 
-export default mutation(async ({ db, auth }) => {
+export default query(async ({ db, auth }) => {
   const identity = await auth.getUserIdentity();
+
   if (!identity) {
-    throw new Error('Called storeUser without authentication present');
+    throw new Error('Called getUserStatus without authentication present');
   }
 
   // Check if we've already stored this identity before.
@@ -13,8 +14,6 @@ export default mutation(async ({ db, auth }) => {
       q.eq('tokenIdentifier', identity.tokenIdentifier)
     )
     .unique();
-  if (user !== null) {
-    return user.role;
-  }
-  return null;
+
+  return user?.status;
 });
