@@ -1,16 +1,10 @@
-import { Outlet } from '@tanstack/react-router';
 import { useQuery } from '@convex/react';
+import { AdminDashboard } from '@pages/admin/dashboard';
 
 export const AdminLayout = () => {
   const status = useQuery('getUserStatus');
 
   if (status !== 'admin') return null;
 
-  return (
-    <div>
-      <div>Admin Layout Route</div>
-      <hr />
-      <Outlet />
-    </div>
-  );
+  return <AdminDashboard />;
 };

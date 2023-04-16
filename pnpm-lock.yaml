@@ -2,7 +2,6 @@ lockfileVersion: 5.4
 
 specifiers:
   '@clerk/clerk-react': ^4.15.0
-  '@heroicons/react': ^2.0.17
   '@tanstack/react-router': 0.0.1-beta.74
   '@types/node': ^18.15.11
   '@types/react': ^18.0.28
@@ -40,7 +39,6 @@ specifiers:
 
 dependencies:
   '@clerk/clerk-react': 4.15.0_react@18.2.0
-  '@heroicons/react': 2.0.17_react@18.2.0
   '@tanstack/react-router': 0.0.1-beta.74_biqbaboplfbrettd7655fr4n2y
   class-variance-authority: 0.5.2_typescript@4.9.5
   clsx: 1.2.1
@@ -594,14 +592,6 @@ packages:
     resolution: {integrity: sha512-IoD2MfUnOV58ghIHCiil01PcohxjbYR/qCxsoC+xNgUwh1EY8jOOrYmu3d3a71+tJJ23uscEV4X2HJWMsPJu4g==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
-
-  /@heroicons/react/2.0.17_react@18.2.0:
-    resolution: {integrity: sha512-90GMZktkA53YbNzHp6asVEDevUQCMtxWH+2UK2S8OpnLEu7qckTJPhNxNQG52xIR1WFTwFqtH6bt7a60ZNcLLA==}
-    peerDependencies:
-      react: '>= 16'
-    dependencies:
-      react: 18.2.0
-    dev: false
 
   /@humanwhocodes/config-array/0.11.8:
     resolution: {integrity: sha512-UybHIJzJnR5Qc/MsD9Kr+RpO2h+/P1GhOwdiLPXK5TWk5sgTdu88bTD9UP+CKbPPh5Rni1u0GjAdYQLemG8g+g==}

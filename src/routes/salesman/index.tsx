@@ -1,10 +1,9 @@
-import LogoutButton from '@components/logout';
+import { SalesmanHomePage } from '@pages/salesman/salesman-home';
+import { Route } from '@tanstack/react-router';
+import { salesmanRoute } from './layout';
 
-export function SalesmanIndex() {
-  return (
-    <div>
-      <h3>Welcome to Salesman Home!</h3>
-      <LogoutButton />
-    </div>
-  );
-}
+export const salesmanIndexRoute = new Route({
+  getParentRoute: () => salesmanRoute,
+  path: '/',
+  component: SalesmanHomePage,
+});

@@ -1,13 +1,14 @@
 import { RootRoute, Route, Router } from '@tanstack/react-router';
 import { CashierIndex } from '@routes/cashier';
-import { SalesmanIndex } from '@routes/salesman';
+import { salesmanIndexRoute } from '@routes/salesman';
 import { AdminPage } from '@routes/admin/index';
 import { CashierLayout } from '@routes/cashier/layout';
 import { RootPage } from '@routes/root';
-import { SalesmanLayout } from '@routes/salesman/layout';
+import { salesmanRoute } from '@routes/salesman/layout';
 
 import { AuthenticatedWrapper } from '@routes/index';
 import { AdminLayout } from '@routes/admin/layout';
+import { salesmanProductsRoute } from '@routes/salesman/products';
 
 export const rootRoute = new RootRoute({
   component: RootPage,
@@ -17,18 +18,6 @@ export const authenticatedRoute = new Route({
   getParentRoute: () => rootRoute,
   path: '/',
   component: AuthenticatedWrapper,
-});
-
-export const salesmanLayout = new Route({
-  getParentRoute: () => authenticatedRoute,
-  id: 'salesman',
-  component: SalesmanLayout,
-});
-
-export const salesmanIndexRoute = new Route({
-  getParentRoute: () => salesmanLayout,
-  path: 'salesman',
-  component: SalesmanIndex,
 });
 
 export const cashierLayout = new Route({
@@ -57,7 +46,7 @@ export const adminRoute = new Route({
 
 const routeTree = rootRoute.addChildren([
   authenticatedRoute.addChildren([
-    salesmanLayout.addChildren([salesmanIndexRoute]),
+    salesmanRoute.addChildren([salesmanIndexRoute, salesmanProductsRoute]),
     cashierLayout.addChildren([cashierIndexRoute]),
     adminLayout.addChildren([adminRoute]),
   ]),
