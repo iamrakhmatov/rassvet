@@ -7,7 +7,9 @@ import { ClerkProvider } from "@clerk/clerk-react";
 import { router } from "./router";
 import "./styles/global.css";
 
-const convex = new ConvexReactClient(import.meta.env.VITE_CONVEX_URL);
+export const convexClient = new ConvexReactClient(
+  import.meta.env.VITE_CONVEX_URL
+);
 
 const rootElement = document.getElementById("root")!;
 if (!rootElement.innerHTML) {
@@ -17,7 +19,7 @@ if (!rootElement.innerHTML) {
       <ClerkProvider
         publishableKey={import.meta.env.VITE_CLERK_PUBLISHABLE_KEY}
       >
-        <ConvexProviderWithClerk client={convex}>
+        <ConvexProviderWithClerk client={convexClient}>
           <RouterProvider router={router} />
         </ConvexProviderWithClerk>
       </ClerkProvider>

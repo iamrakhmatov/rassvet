@@ -1,13 +1,11 @@
 import { Route } from "@tanstack/react-router";
 import { SignIn } from "@clerk/clerk-react";
-import { rootRoute } from "../router";
+import { rootRoute } from "./root";
 
 export const logInRoute = new Route({
   getParentRoute: () => rootRoute,
   path: "login",
-  component: function Auth() {
-    console.log("Auth page");
-
+  component: function LoginPage() {
     return (
       <div className="flex h-screen items-center justify-center">
         <div className="absolute h-[300px] w-[400px]">

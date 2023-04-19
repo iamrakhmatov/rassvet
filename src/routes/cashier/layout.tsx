@@ -1,9 +1,9 @@
 import { Outlet, Route } from "@tanstack/react-router";
-import { useQuery } from "@/convex/react";
-import { rootRoute } from "../../router";
+// import { useQuery } from "@/convex/react";
+import { authLayout } from "../auth-layout";
 
 export const cashierRoute = new Route({
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => authLayout,
   path: "cashier",
   component: function CashierLayout() {
     // const status = useQuery("getUserStatus");

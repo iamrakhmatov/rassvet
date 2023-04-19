@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useConvexAuth } from "convex/react";
 import { LandingPage } from "@/pages/landing-page";
 import { useQuery } from "@/convex/react";
-import { rootRoute } from "../router";
+import { rootRoute } from "./root";
 import { Spinner } from "@/components/ui/spinner";
 
 export const indexRoute = new Route({
@@ -28,20 +28,3 @@ export const indexRoute = new Route({
     return <Spinner />;
   },
 });
-
-// function AuthenticatedWrapper() {
-//   const status = useQuery('getUserStatus');
-//   const navigate = useNavigate({
-//     from: authenticatedRoute.id,
-//   });
-
-//   useEffect(() => {
-//     if (status) {
-//       navigate({ to: `/${status}` });
-//     }
-//   }, [status, navigate]);
-
-//   if (!status) return <>Loading user status...</>;
-
-//   return <Outlet />;
-// }
