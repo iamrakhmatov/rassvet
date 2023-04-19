@@ -1,13 +1,12 @@
-import { Outlet } from '@tanstack/react-router';
-import { useConvexAuth } from 'convex/react';
-import { LandingPage } from '../pages/landing-page';
+import { Outlet } from "@tanstack/react-router";
+/**
+ * Renders the root page.
+ *
+ * @returns {JSX.Element} The rendered root page.
+ */
+export function RootPage(): JSX.Element {
+  console.log("Root page");
 
-export function RootPage() {
-  const { isAuthenticated, isLoading } = useConvexAuth();
-
-  if (isLoading) return <>Checking auth...</>;
-
-  if (!isAuthenticated) return <LandingPage />;
-
+  // Renders the Outlet component, which is used for nested routing.
   return <Outlet />;
 }

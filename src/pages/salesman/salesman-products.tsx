@@ -1,3 +1,9 @@
+import { EditableTable } from "@/components/table";
+
 export function SalesmanProductsPage() {
-  return <div>Hello from products</div>;
+  return (
+    <div>
+      <EditableTable />
+    </div>
+  );
 }
