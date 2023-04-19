@@ -1,24 +1,25 @@
-import { Infer, defineSchema, defineTable, s } from 'convex/schema';
+import { defineSchema, defineTable } from "convex/schema";
+import { v, Infer } from "convex/values";
 
-const userStatuses = s.union(
-  s.literal('salesman'),
-  s.literal('cashier'),
-  s.literal('admin')
+const userStatuses = v.union(
+  v.literal("salesman"),
+  v.literal("cashier"),
+  v.literal("admin")
 );
 export type UserStatus = Infer<typeof userStatuses>;
 
 export default defineSchema({
   users: defineTable({
-    first_name: s.string(),
-    last_name: s.string(),
-    email: s.string(),
-    phone_number: s.optional(s.string()),
-    status: s.optional(userStatuses),
-    tokenIdentifier: s.string(),
-  }).index('by_token', ['tokenIdentifier']),
+    first_name: v.string(),
+    last_name: v.string(),
+    email: v.string(),
+    phone_number: v.optional(v.string()),
+    status: v.optional(userStatuses),
+    tokenIdentifier: v.string(),
+  }).index("by_token", ["tokenIdentifier"]),
   products: defineTable({
-    name: s.string(),
-    booked: s.number(),
-    in_stock: s.number(),
+    name: v.string(),
+    booked: v.number(),
+    in_stock: v.number(),
   }),
 });
