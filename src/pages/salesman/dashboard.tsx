@@ -24,9 +24,9 @@ const navigation: SalesmanNavigation[] = [
 
 export function SalesmanDashboard() {
   return (
-    <div className="h-screen bg-gray-100 font-serif">
+    <div className="h-screen font-serif">
       <div className="min-h-full">
-        <div className="w-full bg-white px-4 shadow-sm sm:px-6 lg:px-8">
+        <div className="w-full border-b border-gray-200 bg-white px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 justify-between">
             <div className="flex">
               <div className="flex shrink-0 items-center">
