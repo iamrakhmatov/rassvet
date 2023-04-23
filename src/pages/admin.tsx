@@ -1,14 +1,24 @@
+import clsx from "clsx";
+import { Link, Outlet } from "@tanstack/react-router";
 import {
   CalendarIcon,
   FilesIcon,
   FolderIcon,
   HomeIcon,
   UsersIcon,
+  LucideIcon,
 } from "lucide-react";
-import clsx from "clsx";
-import { Link, Outlet } from "@tanstack/react-router";
 
-const navigation = [
+type AdminRoutes = "/";
+
+type SalesmanNavigation = {
+  name: string;
+  href: AdminRoutes;
+  current: boolean;
+  icon: LucideIcon;
+};
+
+const navigation: SalesmanNavigation[] = [
   { name: "Home", href: "/", icon: HomeIcon, current: true },
   { name: "Team", href: "/", icon: UsersIcon, current: false },
   { name: "Projects", href: "/", icon: FolderIcon, current: false },
@@ -17,8 +27,6 @@ const navigation = [
 ];
 
 export function AdminDashboard() {
-  console.log("Admin Dashboard");
-
   return (
     <div className="font-mono">
       <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
@@ -59,7 +67,7 @@ export function AdminDashboard() {
                     <li key={item.name}>
                       <Link
                         key={item.name}
-                        to="/salesman/products"
+                        to={item.href}
                         className={clsx(
                           item.current
                             ? "bg-gray-800 text-white"

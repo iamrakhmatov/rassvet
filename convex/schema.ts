@@ -1,12 +1,12 @@
 import { defineSchema, defineTable } from "convex/schema";
 import { v, Infer } from "convex/values";
 
-const userStatuses = v.union(
+const userRoles = v.union(
   v.literal("salesman"),
   v.literal("cashier"),
   v.literal("admin")
 );
-export type UserStatus = Infer<typeof userStatuses>;
+export type UserRole = Infer<typeof userRoles>;
 
 export default defineSchema({
   users: defineTable({
@@ -14,7 +14,7 @@ export default defineSchema({
     last_name: v.string(),
     email: v.string(),
     phone_number: v.optional(v.string()),
-    status: v.optional(userStatuses),
+    role: v.optional(userRoles),
     tokenIdentifier: v.string(),
   }).index("by_token", ["tokenIdentifier"]),
   products: defineTable({

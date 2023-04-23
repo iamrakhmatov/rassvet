@@ -19,10 +19,11 @@
     "paths": {
       "@/*": ["./*", "./dist/*", ""],
       "@/lib/*": ["./lib/*"],
+      "@/store/*": ["./store/*"],
       "@/hooks/*": ["./hooks/*"],
       "@/pages/*": ["./pages/*"],
       "@/routes/*": ["./routes/*"],
-      "@/convex/*": ["../convex/_generated/*"],
+      "@/convex/*": ["../convex/*"],
       "@/components/*": ["./components/*"],
     },
   },

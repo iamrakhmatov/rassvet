@@ -2,15 +2,18 @@ import { useConvexAuth } from "convex/react";
 import { Outlet, Route, useNavigate } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { Spinner } from "@/components/ui/spinner";
-import { rootRoute } from "./root";
-import { indexRoute } from ".";
+import { useQuery } from "@/convex/_generated/react";
+import { useUserActions } from "@/store";
+import { rootRoute } from "../root";
+import { indexRoute } from "..";
 
-export const authLayout = new Route({
+export const authenticatedLayout = new Route({
   getParentRoute: () => rootRoute,
   id: "authenticated",
-  component: function Auth() {
-    console.log("Auth layout");
+  component: function AuthLayout() {
     const { isAuthenticated, isLoading } = useConvexAuth();
+    const user = useQuery("getUser");
+    const { setUserRole } = useUserActions();
     const navigate = useNavigate({
       from: indexRoute.id,
     });
@@ -19,8 +22,13 @@ export const authLayout = new Route({
       if (!isAuthenticated && !isLoading) navigate({ to: "/login" });
     }, [isAuthenticated, isLoading, navigate]);
 
-    if (isLoading) return <Spinner />;
+    useEffect(() => {
+      // Save user role in Store
+      if (user?.role) setUserRole(user.role);
+    }, [user?.role, setUserRole]);
 
-    return <Outlet />;
+    if (isAuthenticated) return <Outlet />;
+
+    return <Spinner />;
   },
 });

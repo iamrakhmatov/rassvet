@@ -1,12 +1,19 @@
-import { create } from 'zustand';
-import { UserStatus } from '../../convex/schema';
+import { create } from "zustand";
+import { UserRole } from "@/convex/schema";
 
-interface AppState {
-  userStatus: UserStatus | undefined;
-  setUserStatus: (status: UserStatus) => void;
-}
+type UserStore = {
+  role?: UserRole;
+  actions: {
+    setUserRole: (role: UserRole) => void;
+  };
+};
 
-export const useAppStore = create<AppState>((set) => ({
-  userStatus: undefined,
-  setUserStatus: (status) => set(() => ({ userStatus: status })),
+const useUserStore = create<UserStore>((set) => ({
+  role: undefined,
+  actions: {
+    setUserRole: (role) => set({ role }),
+  },
 }));
+
+export const useUserRole = () => useUserStore((state) => state.role);
+export const useUserActions = () => useUserStore((state) => state.actions);

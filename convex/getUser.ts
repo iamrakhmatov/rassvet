@@ -16,7 +16,7 @@ export default query(async ({ db, auth }) => {
       )
       .unique();
 
-    return user?.status;
+    return user;
   } catch (e) {
     // This should be logged to datadog/convex
     if (e instanceof Error) console.log(e.message);

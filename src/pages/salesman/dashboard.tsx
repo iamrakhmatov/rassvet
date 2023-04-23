@@ -1,9 +1,13 @@
-import { Link, Outlet } from "@tanstack/react-router";
 import clsx from "clsx";
 import { BellIcon } from "lucide-react";
+import { Link, Outlet } from "@tanstack/react-router";
 import { LogoutButton } from "@/components/logout";
 
-type SalesmanRoutes = "/salesman" | "/salesman/products";
+type SalesmanRoutes =
+  | "/dashboard"
+  | "/dashboard/products"
+  | "/dashboard/orders"
+  | "/dashboard/customers";
 
 type SalesmanNavigation = {
   name: string;
@@ -12,10 +16,10 @@ type SalesmanNavigation = {
 };
 
 const navigation: SalesmanNavigation[] = [
-  { name: "Home", href: "/salesman", current: true },
-  { name: "Products", href: "/salesman/products", current: false },
-  { name: "Orders", href: "/salesman/products", current: false },
-  { name: "Clients", href: "/salesman/products", current: false },
+  { name: "Home", href: "/dashboard", current: true },
+  { name: "Products", href: "/dashboard/products", current: false },
+  { name: "Orders", href: "/dashboard/orders", current: false },
+  { name: "Clients", href: "/dashboard/customers", current: false },
 ];
 
 export function SalesmanDashboard() {
