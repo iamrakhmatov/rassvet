@@ -1,15 +1,20 @@
 import clsx from "clsx";
 import { Link, Outlet } from "@tanstack/react-router";
 import {
-  CalendarIcon,
-  FilesIcon,
-  FolderIcon,
-  HomeIcon,
   UsersIcon,
   LucideIcon,
+  LineChartIcon,
+  WarehouseIcon,
+  DollarSignIcon,
+  BoxesIcon,
+  UserIcon,
 } from "lucide-react";
 
-type AdminRoutes = "/";
+type AdminRoutes =
+  | "/dashboard"
+  | "/dashboard/products"
+  | "/dashboard/orders"
+  | "/dashboard/customers";
 
 type SalesmanNavigation = {
   name: string;
@@ -19,11 +24,42 @@ type SalesmanNavigation = {
 };
 
 const navigation: SalesmanNavigation[] = [
-  { name: "Home", href: "/", icon: HomeIcon, current: true },
-  { name: "Team", href: "/", icon: UsersIcon, current: false },
-  { name: "Projects", href: "/", icon: FolderIcon, current: false },
-  { name: "Calendar", href: "/", icon: CalendarIcon, current: false },
-  { name: "Documents", href: "/", icon: FilesIcon, current: false },
+  {
+    name: "Statistics",
+    href: "/dashboard",
+    icon: LineChartIcon,
+    current: true,
+  },
+  {
+    name: "Customers",
+    href: "/dashboard/customers",
+    icon: UsersIcon,
+    current: false,
+  },
+  {
+    name: "Products",
+    href: "/dashboard/products",
+    icon: WarehouseIcon,
+    current: false,
+  },
+  {
+    name: "Orders",
+    href: "/dashboard/orders",
+    icon: BoxesIcon,
+    current: false,
+  },
+  {
+    name: "Expences",
+    href: "/dashboard",
+    icon: DollarSignIcon,
+    current: false,
+  },
+  {
+    name: "Users",
+    href: "/dashboard",
+    icon: UserIcon,
+    current: false,
+  },
 ];
 
 export function AdminDashboard() {

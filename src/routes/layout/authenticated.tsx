@@ -3,7 +3,7 @@ import { Outlet, Route, useNavigate } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { Spinner } from "@/components/ui/spinner";
 import { useQuery } from "@/convex/_generated/react";
-import { useUserActions } from "@/store";
+import { useUserActions, useUserRole } from "@/store";
 import { rootRoute } from "../root";
 import { indexRoute } from "..";
 
@@ -11,9 +11,11 @@ export const authenticatedLayout = new Route({
   getParentRoute: () => rootRoute,
   id: "authenticated",
   component: function AuthLayout() {
-    const { isAuthenticated, isLoading } = useConvexAuth();
     const user = useQuery("getUser");
+    const { isAuthenticated, isLoading } = useConvexAuth();
+    const userRole = useUserRole();
     const { setUserRole } = useUserActions();
+
     const navigate = useNavigate({
       from: indexRoute.id,
     });
@@ -27,7 +29,7 @@ export const authenticatedLayout = new Route({
       if (user?.role) setUserRole(user.role);
     }, [user?.role, setUserRole]);
 
-    if (isAuthenticated) return <Outlet />;
+    if (isAuthenticated && userRole) return <Outlet />;
 
     return <Spinner />;
   },

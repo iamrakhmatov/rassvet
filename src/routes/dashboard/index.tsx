@@ -2,7 +2,7 @@ import { Route } from "@tanstack/react-router";
 import { authenticatedLayout } from "../layout/authenticated";
 import { useUserRole } from "@/store";
 import { SalesmanDashboard } from "@/pages/salesman/dashboard";
-import { AdminDashboard } from "@/pages/admin";
+import { AdminDashboard } from "@/pages/admin/dashboard";
 
 export const dashboardRoute = new Route({
   getParentRoute: () => authenticatedLayout,
