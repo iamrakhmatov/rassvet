@@ -19,7 +19,16 @@ export default defineSchema({
   }).index("by_token", ["tokenIdentifier"]),
   products: defineTable({
     name: v.string(),
+    order: v.number(),
     booked: v.number(),
     in_stock: v.number(),
+    total: v.number(),
+    price: v.number(),
+    unit: v.union(
+      v.literal("kg"),
+      v.literal("m"),
+      v.literal("l"),
+      v.literal("pcs")
+    ),
   }),
 });

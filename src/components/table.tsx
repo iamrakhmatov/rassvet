@@ -1,14 +1,16 @@
 /* eslint-disable react/prop-types */
-import React from "react";
+import React, { useState } from "react";
 import {
   useReactTable,
   getCoreRowModel,
   flexRender,
   RowData,
   createColumnHelper,
+  CellContext,
 } from "@tanstack/react-table";
 import clsx from "clsx";
-import { makeData, Products } from "./makeData";
+import { useQuery } from "@/convex/_generated/react";
+import { Doc } from "@/convex/_generated/dataModel";
 
 declare module "@tanstack/react-table" {
   interface TableMeta<TData extends RowData> {
@@ -43,15 +45,33 @@ declare module "@tanstack/react-table" {
 //   },
 // };
 
-export function EditableTable() {
-  const [data, setData] = React.useState(() => makeData(10));
+type Product = Doc<"products">;
 
-  const inputField = React.useMemo(() => {
-    return <input type="text" className="w-full ring-0 focus:ring-0" />;
-  }, []);
+const InputField = ({
+  row: { index },
+  column: { id },
+  table,
+}: CellContext<Product, number>) => {
+  const [value, setValue] = useState("");
+  const onBlur = () => {
+    if (value === "") return;
+    table.options.meta?.updateData(index, id, value);
+  };
+  return (
+    <input
+      type="text"
+      className="w-full border-0 pl-6 focus:ring-slate-300"
+      onChange={(e) => setValue(e.target.value)}
+      onBlur={onBlur}
+    />
+  );
+};
+
+export function EditableTable() {
+  const products = useQuery("getProducts") ?? [];
 
   const columns = React.useMemo(() => {
-    const columnHelper = createColumnHelper<Products>();
+    const columnHelper = createColumnHelper<Product>();
 
     return [
       columnHelper.accessor("name", {
@@ -60,12 +80,7 @@ export function EditableTable() {
       }),
       columnHelper.accessor("in_stock", {
         header: "Order",
-        cell: (props) => inputField,
-        meta: {
-          header: {
-            width: "20px",
-          },
-        },
+        cell: (props) => InputField(props),
       }),
       columnHelper.accessor("in_stock", {
         header: "In Stock",
@@ -88,25 +103,16 @@ export function EditableTable() {
         footer: (props) => props.column.id,
       }),
     ];
-  }, [inputField]);
+  }, []);
 
   const table = useReactTable({
-    data,
+    data: products,
     columns,
     getCoreRowModel: getCoreRowModel(),
     meta: {
       updateData: (rowIndex, columnId, value) => {
-        setData((old) =>
-          old.map((row, index) => {
-            if (index === rowIndex) {
-              return {
-                ...old[rowIndex]!,
-                [columnId]: value,
-              };
-            }
-            return row;
-          })
-        );
+        console.log("This is from there:", value, rowIndex);
+        // Do here mutation stuff to update data on the database
       },
     },
     debugTable: true,
@@ -155,7 +161,7 @@ export function EditableTable() {
                       className={
                         cell.column.columnDef.header === "Order"
                           ? "w-24"
-                          : "relative  py-2 pl-4 pr-3 text-sm sm:pl-6"
+                          : "relative py-2 pl-4 pr-3 text-sm sm:pl-6"
                       }
                     >
                       {flexRender(
